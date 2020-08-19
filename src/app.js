@@ -78,9 +78,9 @@ app.post('/repositories/:id/like', (request, response) => {
     return response.status(400).json({ error: 'repository not found.' });
   }
 
-  const likes = ++repositories[repositoryIndex].likes;
+  repositories[repositoryIndex].likes++;
 
-  return response.json(likes);
+  return response.json(repositories[repositoryIndex]);
 });
 
 function findRepositoryIndexWithId(id) {
